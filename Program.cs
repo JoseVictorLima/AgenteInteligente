@@ -27,24 +27,18 @@ namespace IA
             Robot agente = new Robot(0,0);
             bool allClear = false; //False = Tudo sujo; True = Tudo Limpo
             rooms[agente.MyY,agente.MyX] = 'O';
-            Console.WriteLine("Ações Tomadas:" + action);
             while(allClear == false){
-
+                Console.WriteLine("Ações Tomadas:" + action);
                 print(rooms);
                 rooms[agente.MyY,agente.MyX] = ' ';
-                agente.Movement();
-                action++;
-                if(roomStatus[agente.MyY,agente.MyX]==true){
-                    roomStatus[agente.MyY,agente.MyX]=false;
+                if(allClear!=true){
+                    roomStatus[agente.MyY,agente.MyX] = agente.Movement(roomStatus[agente.MyY,agente.MyX]);
+                    action++;
+                    rooms[agente.MyY,agente.MyX] = 'O';
                 }
-                rooms[agente.MyY,agente.MyX] = 'O';
                 System.Threading.Thread.Sleep(500);
                 Console.WriteLine(' ');
                 allClear = checkRoomStatus(roomStatus,allClear);
-                Console.WriteLine("Ações Tomadas:" + action);
-                if(allClear==true){
-                    print(rooms);
-                }
             }
         }
 

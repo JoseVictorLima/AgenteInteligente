@@ -3,3 +3,7 @@
 <ul>
 	<li>Apenas percorre as salas de forma aleatória e para quando todas as salas estão limpas</li>
 </ul>
+<h3>Versão 1.1:</h3>
+<ul>
+	<li>O Agente agora possui uma memória que guarda o caminho tomado apos limpar uma sala e caso venha a visitar essa sala ele não utiliza mais o mesmo caminho utilizado antes.</li>
+</ul>
